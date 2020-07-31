@@ -16,16 +16,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      color: "#32a84e",
-      pColor: "#32a84e",
+      count: "Click Me",
+      color: "#ffffff",
+      pColor: "#ffffff",
+      counter: 1
     };
   }
   get initialState() {
     return {
-      count: 0,
-      color: "#32a84e",
-      pColor: "#32a84e",
+      counter: 1,
+      color: "#ffffff",
+      pColor: "#ffffff",
+      count: "Click Me", 
     };
   }
 
@@ -38,8 +40,9 @@ class App extends React.Component {
     }
 
     this.setState({
+      counter : this.state.counter + 1,
       pColor: this.state.color,
-      count: this.state.count + 1,
+      count: this.state.counter,
       color: rainbow,
     });
   };
@@ -60,21 +63,23 @@ class App extends React.Component {
       height: 200,
     };
     let defaultValue = {
-      backgroundColor: "#32a84e",
+      backgroundColor: "#ffffff",
       width: 300,
       height: 50,
+      color:'black'
+      
     };
     return (
       <div className="App">
         <div className="Box" type="button" onClick={this.clickUpdate}>
           <div style={styleValue}>
-            <h1 className="text"> After </h1>
+            <h1 className="text"> Current </h1>
           </div>
           <div  style={defaultValue}>
             {this.state.count}
           </div>
           <div  style={pstyleValue}>
-            <h1 className="text"> Before</h1>
+            <h1 className="text"> Previous</h1>
           </div>
         </div>
         <button type="button" onClick={this.resetBuilder}>
