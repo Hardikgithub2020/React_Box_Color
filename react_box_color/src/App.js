@@ -7,7 +7,7 @@
 // We create a siv, and set attribute type: 'button' to make it clickble
 // we call a function which coungt incremental by q on each click and alos assign a new color value
 //Create one button for reset, onclick call function which assign default value to State
-
+// create another div which represent the previous color 
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -18,12 +18,14 @@ class App extends React.Component {
     this.state = {
       count: 0,
       color: "#32a84e",
+      pColor :"#32a84e" 
     };
   }
   get initialState() {
     return {
       count: 0,
       color: "#32a84e",
+      pColor:"#32a84e"
     };
   }
 
@@ -34,14 +36,17 @@ class App extends React.Component {
     for (let i = 0; i < 6; i++) {
       rainbow += letters[Math.floor(Math.random() * 16)];
     }
+
     this.setState({
+      pColor : this.state.color,
       count: this.state.count + 1,
       color: rainbow,
     });
-  };
+  }
+
   resetBuilder = () => {
     this.setState(this.initialState);
-  };
+  }
 
   render() {
     let styleValue = {
@@ -49,6 +54,17 @@ class App extends React.Component {
       width: "50%",
       height: 200,
     };
+    let pstyleValue = {
+      backgroundColor: this.state.pColor,
+      width: "50%",
+      height: 200,
+    };
+    let defaultValue ={
+      backgroundColor:"#32a84e",
+      width: "50%",
+      height: 50,
+
+    }
     return (
       <div className="App">
         <div
@@ -57,11 +73,18 @@ class App extends React.Component {
           style={styleValue}
           onClick={this.clickUpdate}
         >
-          <h1 className="count"> {this.state.count}</h1>
-          <h6 className="count">
-            Click on me, I am changing color and also count how many times you
-            click
-          </h6>
+          <h1 className="count">
+            After
+          </h1>
+        </div>
+        <div className="count" style={defaultValue}> {this.state.count}</div>
+        <div
+          className="Box"
+          style={pstyleValue}
+          onClick={this.clickUpdate}
+        >
+          <h1 className="count"> Before</h1>
+          
         </div>
         <button type="button" onClick={this.resetBuilder}>
           Reset
