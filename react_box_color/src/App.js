@@ -66,11 +66,12 @@ class App extends React.Component {
 
     }
     return (
-      <div className="App">
+      <div className="App" type="button"
+      onClick={this.clickUpdate}>
         <div
           className="Box"
-          type="button"
           style={styleValue}
+          type="button"
           onClick={this.clickUpdate}
         >
           <h1 className="count">
