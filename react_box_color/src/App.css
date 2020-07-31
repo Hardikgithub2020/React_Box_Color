@@ -1,23 +1,27 @@
-
+*{
+  margin: none;
+  background-color: none;
+  padding: none;
+}
 .App{
+  margin-top: 100px;
   background-color: #282c34;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 .Box{
-  background-color: #282c34;
+  margin: 20px;
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+  
 }
 div{
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
 }
 
 
